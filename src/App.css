@@ -19,11 +19,11 @@
   margin: 0 auto;
 }
 .container {
-  width: 400px;
+  width: 30%;
   height: auto;
   padding: 20px;
   background: #000;
-  opacity: .9;
+  opacity: .7;
   margin-top: 50px;
 }
 h2 {
@@ -72,7 +72,99 @@ p {
 }
 .date input {
   display: inline-block;
-  width: 60px;
+  width: 50%;
   text-align: center;
+  text-transform: capitalize;
+  background: gray;
+}
+#date {
+  text-transform: uppercase;
 }
 #month {margin-left: auto;}
+.pageTwo {
+  color: #000;
+  height: 100vh;
+  background: rgb(231, 228, 228);
+}
+.pageTwo nav {
+  background: #000;
+  height: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+header {
+  padding: 20px;
+  color: #000;
+  background: white;
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+}
+h5, h6 {
+  color: #000;
+  font-size: 14px;
+}
+.content p {
+  color: black;
+  padding: 20px;
+}
+.details {
+  display: flex;
+  border: 1px solid silver;
+  margin: 10px 20px;
+  justify-content: space-around;
+}
+.info {
+  font-weight: 700;
+}
+.sub-info {
+  margin-top: -30px;
+  font-size: 14px;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.tracking-details {
+  width: 100%;
+  background: #fff;
+  height: 30px;
+  color: #000;
+  margin: 40px 0;
+}
+.tracking-details header {
+  color: #000;
+}
+
+@media screen and (max-width:768px) {
+  .container {
+    width: 400px;
+  }
+  .copyright{
+    text-align: center;
+    font-size: 12px;
+  }
+}
+@media screen and (min-width:768px) {
+  .container {
+    width: 45%;
+  }
+  .copyright{
+    text-align: center;
+    font-size: 12px;
+  }
+}
+@media screen and (min-width:991px) {
+  .container {
+    width: 400px;
+  }
+  .copyright{
+    text-align: center;
+    font-size: 12px;
+  }
+}

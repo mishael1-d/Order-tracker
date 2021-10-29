@@ -1,34 +1,64 @@
+import { useState } from "react";
 import "../src/App.css";
+import AppContext from "./AppContext";
+import PageOne from "./component/PageOne";
+import PageTwo from "./component/PageTwo";
 
 function App() {
+  const [info, setInfo] = useState({
+    name: "",
+    email: "",
+    orderid: "",
+    day: "",
+  });
+  const [render, setRender] = useState(false);
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setInfo({ ...info, [name]: value });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(info.day);
+    if(info.name && info.orderid && info.email) {
+      setRender(!render);
+    }
+    else {
+      alert("Please check your credentials and try again. Thank you")
+    }
+    
+  };
+  const logout =()=> {
+    setRender(false)
+    setInfo({
+      name: "",
+    email: "",
+    orderid: "",
+    day: "",
+    })
+  }
+  // const changeRender = setRender(false);
+  const states = {
+    name: info.name,
+    email: info.email,
+    orderid: info.orderid,
+    day: info.day,
+    changeBtn: handleChange,
+    submitBtn: handleSubmit,
+    changeRenderBtn: logout
+  };
   return (
-    <div className="App">
-      <h2>order tracking form</h2>
-      <div className="container">
-        <h3>track your order</h3>
-        <div className="input-field">
-          <label htmlFor="name">Name</label>
-          <input type="text" name="name" id="name" />
-          <label htmlFor="e-mail">E-Mail</label>
-          <input type="text" name="e-mail" id="e-mail" />
-          <label htmlFor="order-id">
-            Order ID <span>*</span>
-          </label>
-          <input type="text" pattern="[0-9]*"name="order-id" id="order-id" required />
-          <div className="date">
-            <label htmlFor="doo">Date Of Order</label>
-            <input type="day" pattern="[0-9]*" maxLength="2"name="date" id="date" placeholder="DD"/>
-            <input type="day" pattern="[0-9]*" name="month" id="month" placeholder="MM" maxLength="2"/>
-            <input type="day" pattern="[0-9]*" name="month" id="month" placeholder="YYYY" maxLength="4"/>
+    <AppContext.Provider value={states}>
+      <>
+        {render ? (
+          <PageTwo />
+        ) : (
+          <div className="App">
+            <PageOne />
           </div>
-          <button type="submit">Submit</button>
-        </div>
-      </div>
-      <p>
-        &copy; 2021 Order Tracking Form. All Rights Reserved | Design by
-        Mish_Technologies.
-      </p>
-    </div>
+        )}
+      </>
+    </AppContext.Provider>
   );
 }
 
