@@ -2,6 +2,7 @@ import React from 'react'
 import Content from './Content'
 import AppContext from '../AppContext'
 import { useContext } from 'react/cjs/react.development'
+import Stepper from './stepper/Stepper';
 
 function PageTwo() {
     const myContext = useContext(AppContext);
@@ -14,6 +15,7 @@ function PageTwo() {
                 <button onClick={myContext.changeRenderBtn}>Logout</button>
             </nav>
             <Content/>
+            <Stepper/>
         </div>
     )
 }

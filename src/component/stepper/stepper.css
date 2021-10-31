@@ -1,0 +1,38 @@
+.stepper-wrapper-horizontal {
+    width: 80%;
+    margin: 30px auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    background: rgb(206, 197, 197);
+    color: black;
+}
+.step-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    color: black;
+}
+.step-number {
+    border-radius: 80%;
+    border: 1px solid gray;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    text-align: center;
+    margin-bottom: 25px;
+    color: black;
+}
+.step.desc {
+    color: black;
+}
+.divider-line {
+    height: 3px;
+    background-color: rgb(45, 24, 63);
+    position: relative;
+    width: 86.5%;
+    left: 50%;
+    bottom: 74%;
+}
