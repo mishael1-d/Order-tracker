@@ -95,14 +95,14 @@ function App() {
   return (
     <AppContext.Provider value={states}>
       <>
-        {/* {render ? (
+        {render ? (
           <PageTwo />
         ) : (
           <div className="App">
             <PageOne />
           </div>
-        )} */}
-        <PageTwo/>
+        )}
+        {/* <PageTwo/> */}
       </>
     </AppContext.Provider>
   );
