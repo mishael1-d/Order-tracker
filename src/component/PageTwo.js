@@ -1,7 +1,6 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import Content from './Content'
 import AppContext from '../AppContext'
-import { useContext } from 'react/cjs/react.development'
 import Stepper from './stepper/Stepper';
 
 function PageTwo() {
