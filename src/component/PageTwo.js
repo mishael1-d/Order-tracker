@@ -11,7 +11,7 @@ function PageTwo() {
         <div className="pageTwo">
             <nav>
                 <h3>Cargo Courier Service, USA</h3>
-                <p>Shippment Tracking</p>
+                <p className="mid-nav">Shippment Tracking</p>
                 <button onClick={myContext.changeRenderBtn}>Logout</button>
             </nav>
             <Content/>

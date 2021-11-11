@@ -10,7 +10,7 @@ function Content() {
   const day = parseInt(new Date().getDate() + 7);
   const month = new Date().getMonth();
   const year = new Date().getFullYear();
-  const fullDate = `${day} / ${month + 1} / ${year}`;
+  const fullDate = `${day} / ${month + 2} / ${year}`;
 
   
 //   const id = localStorage.getItem(myContext.orderid);
@@ -18,6 +18,7 @@ function Content() {
   return (
     <>
       <div className="content">
+
         <header>
           <h6>My orders / tracking</h6>
           <h5>Welcome, {myContext.name}</h5>
