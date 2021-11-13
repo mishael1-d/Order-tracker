@@ -36,18 +36,25 @@
     left: 50%;
     bottom: 74%;
 }
+.is-active {
+    background: rgb(45, 24, 63);
+}
+.is-active span {
+    color: white;
+}
 
 @media  screen and (max-width:768px) {
     .stepper-wrapper-horizontal {
         width: 100%;
         padding: 10px;
         margin: 10px auto;
+        justify-content: space-around;
     }
     .step-desc {
         font-size: 10px;
     }
     .divider-line {
         width: 50%;
-        bottom: 80%;
+        bottom: 78%;
     }
 }
