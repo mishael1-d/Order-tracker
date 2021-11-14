@@ -112,7 +112,7 @@ header {
   height: 60px;
 }
 h5, h6 {
-  color: rgb(209, 175, 175);
+  color: black;
   font-size: 14px;
   text-transform: capitalize;
 }
