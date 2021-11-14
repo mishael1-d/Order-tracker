@@ -50,6 +50,7 @@ input {
   outline: none;
   border: 1px solid silver;
   color: #fff;
+  text-transform: capitalize;
 }
 span {
   color: rgb(45, 24, 63);
@@ -111,8 +112,9 @@ header {
   height: 60px;
 }
 h5, h6 {
-  color: #000;
+  color: rgb(209, 175, 175);
   font-size: 14px;
+  text-transform: capitalize;
 }
 .content p {
   color: black;

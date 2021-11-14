@@ -5,15 +5,12 @@ import TrackingDetails from "./TrackingDetails";
 
 function Content() {
   const myContext = useContext(AppContext);
-  
   const day = parseInt(new Date().getDate() + 7);
   const month = new Date().getMonth();
   const year = new Date().getFullYear();
   const fullDate = `${day} / ${month + 2} / ${year}`;
 
   
-//   const id = localStorage.getItem(myContext.orderid);
-
   return (
     <>
       <div className="content">

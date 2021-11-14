@@ -1,11 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import AppContext from "../AppContext";
 
 function PageOne() {
   const myContext = useContext(AppContext);
-  
-  
-  
+  const orderRef = useRef()
 
   return (
     <>
@@ -38,6 +36,7 @@ function PageOne() {
             title="Numbers Only"
             id="order-id"
             required
+            ref={orderRef}
             maxLength="10"
             value={myContext.orderid}
             onChange={myContext.changeBtn}

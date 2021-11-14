@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "../src/App.css";
+// import {BrowserRoute as Router, Switch, Route} from "react-router-dom"
 import AppContext from "./AppContext";
 import PageOne from "./component/PageOne";
 import PageTwo from "./component/PageTwo";
@@ -95,6 +96,7 @@ function App() {
   return (
     <AppContext.Provider value={states}>
       <>
+
         {render ? (
           <PageTwo />
         ) : (
