@@ -1,18 +1,23 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import {Route, Redirect}from 'react-router-dom'
-import AppContext from '../AppContext'
+// import Dashboard from './PageTwo'
+// import AppContext from '../AppContext'
 ;
-function ProtectedRoute({component:Component, ...rest}) {
-    const myContext = useContext(AppContext)
+function ProtectedRoute({Component, ...rest}) {
+    // const myContext = useContext(AppContext)
+    const isAuth = localStorage.getItem("isAuth")
     return (
         <Route {...rest} render={(props) =>{
-            if(myContext.login){
-                console.log(myContext.login);
+            if(isAuth){
                 return <Component/>
+
             } else {
-                return <Redirect to={{ pathname: "/", state: { from: props.location }}}/>
+                return <Redirect to="/login"/>
             }
         }}/>
+        // <Route {...rest}>
+        //     {isAuth? <Dashboard/>:<Redirect to="/login"/>}
+        // </Route>
     )
 }
 

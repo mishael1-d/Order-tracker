@@ -1,4 +1,4 @@
-import React, {  useContext} from "react";
+import React, { useContext } from "react";
 import AppContext from "../AppContext";
 import Status from "./status";
 import TrackingDetails from "./TrackingDetails";
@@ -10,11 +10,9 @@ function Content() {
   const year = new Date().getFullYear();
   const fullDate = `${day} / ${month + 2} / ${year}`;
 
-  
   return (
     <>
       <div className="content">
-
         <header>
           <h6>My orders / tracking</h6>
           <h5>Welcome, {myContext.name}</h5>

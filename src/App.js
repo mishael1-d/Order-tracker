@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import "../src/App.css";
-import {BrowserRouter as Router, Route} from "react-router-dom"
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import AppContext from "./AppContext";
-import PageOne from "./component/PageOne";
-import PageTwo from "./component/PageTwo";
+import Login from "./component/PageOne";
+import Dashboard from "./component/PageTwo";
 import ProtectedRoute from "./component/ProtectedRoute";
 
 function App() {
@@ -13,7 +13,8 @@ function App() {
     orderid: "",
     day: "",
   });
-  const [render, setRender] = useState(false);
+  // const [render, setRender] = useState(true);
+  const [errorMessage, setErrorMessage] = useState({ value: "" });
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -35,16 +36,25 @@ function App() {
   const status = stepArray;
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (info.name && info.orderid && info.email) {
-      setRender(true);
-      console.log(render);
+    if (info.name === "" || info.orderid === "") {
+      setErrorMessage((prevState) => ({
+        value: "Empty name/order id/email field",
+      }));
+      // setRender(true);
+      console.log(errorMessage.value);
+    } else if (
+      info.orderid === "1234567890" ||info.orderid==="0987654321"
+    ) {
+      localStorage.setItem("isAuth", "true");
+      window.location.pathname = "/";
     } else {
-      alert("Please check your credentials and try again. Thank you");
+      setErrorMessage((prevState) => ({ value: "Invalid credentials" }));
     }
-    console.log(render);
   };
   const logout = () => {
-    setRender(false);
+    // setRender(false);
+    localStorage.clear();
+    window.location.pathname = "/login";
     setInfo({
       name: "",
       email: "",
@@ -62,7 +72,8 @@ function App() {
     changeRenderBtn: logout,
     steps: stepArray,
     trackingId: trackingId,
-    login: render
+    // login: render,
+    errormessage: errorMessage,
   };
 
   useEffect(() => {
@@ -77,15 +88,12 @@ function App() {
 
   useEffect(() => {
     if (trackingId) {
-      setTrackingId(trackingId)
+      setTrackingId(trackingId);
     } else {
       setTrackingId(Date.now());
     }
 
-    return () => {
-      localStorage.clear();
-    };
-  }, [trackingId,states.orderid]);
+  }, [trackingId, states.orderid]);
 
   // const changeRender = setRender(false);
 
@@ -104,12 +112,13 @@ function App() {
     // </AppContext.Provider>
     <Router>
       <AppContext.Provider value={states}>
-          <Route path="/" exact component={PageOne}/>
-          {/* <Route path="/dashboard" component={PageTwo}>
+        <Route path="/login" component={Login} />
+        {/* <Route path="/dashboard" component={PageTwo}>
             <PageTwo/>
           </Route> */}
-          <ProtectedRoute path="/dashboard" component={PageTwo} isAuth={render}/>
-
+          </AppContext.Provider>
+          <AppContext.Provider value={states}>
+        <ProtectedRoute path="/" exact Component={Dashboard} />
       </AppContext.Provider>
     </Router>
   );
