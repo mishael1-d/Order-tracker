@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import "../src/App.css";
-// import {BrowserRoute as Router, Switch, Route} from "react-router-dom"
+import {BrowserRouter as Router, Route} from "react-router-dom"
 import AppContext from "./AppContext";
 import PageOne from "./component/PageOne";
 import PageTwo from "./component/PageTwo";
+import ProtectedRoute from "./component/ProtectedRoute";
 
 function App() {
   const [info, setInfo] = useState({
@@ -35,17 +36,12 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (info.name && info.orderid && info.email) {
-      JSON.stringify(localStorage.setItem(states.orderid, states.trackingId));
-      const check = localStorage.key(0);
-      setRender(!render);
-      if (check === states.orderid) {
-        console.log("i exist");
-      } else {
-        console.log("i dont exist");
-      }
+      setRender(true);
+      console.log(render);
     } else {
       alert("Please check your credentials and try again. Thank you");
     }
+    console.log(render);
   };
   const logout = () => {
     setRender(false);
@@ -66,6 +62,7 @@ function App() {
     changeRenderBtn: logout,
     steps: stepArray,
     trackingId: trackingId,
+    login: render
   };
 
   useEffect(() => {
@@ -80,10 +77,9 @@ function App() {
 
   useEffect(() => {
     if (trackingId) {
-      console.log("present");
+      setTrackingId(trackingId)
     } else {
       setTrackingId(Date.now());
-      console.log('absent');
     }
 
     return () => {
@@ -94,19 +90,28 @@ function App() {
   // const changeRender = setRender(false);
 
   return (
-    <AppContext.Provider value={states}>
-      <>
+    // <AppContext.Provider value={states}>
+    //   <>
+    //     {render ? (
+    //       <PageTwo />
+    //     ) : (
+    //       <div className="App">
+    //         <PageOne />
+    //       </div>
+    //     )}
+    //     {/* <PageTwo/> */}
+    //   </>
+    // </AppContext.Provider>
+    <Router>
+      <AppContext.Provider value={states}>
+          <Route path="/" exact component={PageOne}/>
+          {/* <Route path="/dashboard" component={PageTwo}>
+            <PageTwo/>
+          </Route> */}
+          <ProtectedRoute path="/dashboard" component={PageTwo} isAuth={render}/>
 
-        {render ? (
-          <PageTwo />
-        ) : (
-          <div className="App">
-            <PageOne />
-          </div>
-        )}
-        {/* <PageTwo/> */}
-      </>
-    </AppContext.Provider>
+      </AppContext.Provider>
+    </Router>
   );
 }
 

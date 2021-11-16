@@ -1,4 +1,5 @@
 import React, {useContext} from 'react'
+import { Link, withRouter } from "react-router-dom"
 import Content from './Content'
 import AppContext from '../AppContext'
 import Stepper from './stepper/Stepper';
@@ -11,7 +12,9 @@ function PageTwo() {
             <nav>
                 <h3>Cargo Courier Service, USA</h3>
                 <p className="mid-nav">Shippment Tracking</p>
+                <Link to="/">
                 <button onClick={myContext.changeRenderBtn}>Logout</button>
+                </Link>
             </nav>
             <Content/>
             <Stepper/>
@@ -19,4 +22,4 @@ function PageTwo() {
     )
 }
 
-export default PageTwo
+export default withRouter(PageTwo)

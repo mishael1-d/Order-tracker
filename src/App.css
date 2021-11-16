@@ -67,6 +67,7 @@ button {
   outline: none;
   padding: 10px 15px;
   cursor: pointer;
+  text-decoration: none;
 }
 p {
   margin-top: auto;
