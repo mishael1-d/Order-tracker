@@ -9,14 +9,16 @@ function Content() {
   const month = new Date().getMonth();
   const year = new Date().getFullYear();
   const fullDate = `${day} / ${month + 2} / ${year}`;
+  const id = localStorage.getItem("id")
+  const name = localStorage.getItem("name")
   return (
     <>
       <div className="content">
         <header>
           <h6>My orders / tracking</h6>
-          <h5>Welcome, {myContext.name}</h5>
+          <h5>Welcome, {name}</h5>
         </header>
-        <p>Order ID: {myContext.orderid}</p>
+        <p>Order ID: {id}</p>
         <div className="details">
           <span>
             <p className="info">Estimated Delivery time:</p>

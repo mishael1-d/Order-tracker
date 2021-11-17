@@ -47,6 +47,8 @@ function App() {
     } else {
       setErrorMessage((prevState) => ({ value: "Invalid credentials" }));
     }
+    localStorage.setItem("id",info.orderid)
+    localStorage.setItem("name",info.name)
   };
   const logout = () => {
     localStorage.clear();
