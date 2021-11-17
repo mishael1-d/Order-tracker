@@ -11,7 +11,7 @@ function Status () {
     useEffect(()=>{
         let timeout;
         if (statusIndex < status.length -1) {
-            timeout = setTimeout(()=> setStatusIndex(statusIndex + 1), 7000);
+            timeout = setTimeout(()=> setStatusIndex(statusIndex + 1), 100000);
         }
         return ()=> {
             clearTimeout(timeout);

@@ -9,7 +9,6 @@ function Content() {
   const month = new Date().getMonth();
   const year = new Date().getFullYear();
   const fullDate = `${day} / ${month + 2} / ${year}`;
-
   return (
     <>
       <div className="content">

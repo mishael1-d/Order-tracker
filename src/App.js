@@ -13,7 +13,6 @@ function App() {
     orderid: "",
     day: "",
   });
-  // const [render, setRender] = useState(true);
   const [errorMessage, setErrorMessage] = useState({ value: "" });
 
   const handleChange = (e) => {
@@ -42,9 +41,7 @@ function App() {
       }));
       // setRender(true);
       console.log(errorMessage.value);
-    } else if (
-      info.orderid === "1234567890" ||info.orderid==="0987654321"
-    ) {
+    } else if (info.orderid === "1234567890" || info.orderid === "0987654321") {
       localStorage.setItem("isAuth", "true");
       window.location.pathname = "/";
     } else {
@@ -52,7 +49,6 @@ function App() {
     }
   };
   const logout = () => {
-    // setRender(false);
     localStorage.clear();
     window.location.pathname = "/login";
     setInfo({
@@ -72,7 +68,6 @@ function App() {
     changeRenderBtn: logout,
     steps: stepArray,
     trackingId: trackingId,
-    // login: render,
     errormessage: errorMessage,
   };
 
@@ -92,32 +87,13 @@ function App() {
     } else {
       setTrackingId(Date.now());
     }
-
   }, [trackingId, states.orderid]);
 
-  // const changeRender = setRender(false);
 
   return (
-    // <AppContext.Provider value={states}>
-    //   <>
-    //     {render ? (
-    //       <PageTwo />
-    //     ) : (
-    //       <div className="App">
-    //         <PageOne />
-    //       </div>
-    //     )}
-    //     {/* <PageTwo/> */}
-    //   </>
-    // </AppContext.Provider>
     <Router>
       <AppContext.Provider value={states}>
         <Route path="/login" component={Login} />
-        {/* <Route path="/dashboard" component={PageTwo}>
-            <PageTwo/>
-          </Route> */}
-          </AppContext.Provider>
-          <AppContext.Provider value={states}>
         <ProtectedRoute path="/" exact Component={Dashboard} />
       </AppContext.Provider>
     </Router>
