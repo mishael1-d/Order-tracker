@@ -4,13 +4,11 @@ import {Route, Redirect}from 'react-router-dom'
 // import AppContext from '../AppContext'
 ;
 function ProtectedRoute({Component, ...rest}) {
-    // const myContext = useContext(AppContext)
     const isAuth = localStorage.getItem("isAuth")
     return (
         <Route {...rest} render={(props) =>{
             if(isAuth){
                 return <Component/>
-
             } else {
                 return <Redirect to="/login"/>
             }

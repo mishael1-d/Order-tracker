@@ -9,7 +9,7 @@ function Stepper() {
   const stepDisplay = steps.steps.map((step, index) => {
     return (
       <div className="step-wrapper" key={index}>
-        <div className="step-number is-active"><span>&#10003;</span></div>
+        <div className="step-number"><span>&#10003;</span></div>
         <div className="step-desc">{step}</div>
         <div className={index !== steps.steps.length -1 ? "divider-line":undefined}></div>
       </div>

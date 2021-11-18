@@ -37,15 +37,15 @@ function App() {
     e.preventDefault();
     if (info.name === "" || info.orderid === "") {
       setErrorMessage((prevState) => ({
-        value: "Empty name/order id/email field",
+        value: "Empty Name/Order ID/Email field",
       }));
       // setRender(true);
       console.log(errorMessage.value);
-    } else if (info.orderid === "1234567890" || info.orderid === "0987654321") {
+    } else if (info.orderid === "1234567890" || info.orderid === "0987654321" || info.orderid === "1001289172") {
       localStorage.setItem("isAuth", "true");
       window.location.pathname = "/";
     } else {
-      setErrorMessage((prevState) => ({ value: "Invalid credentials" }));
+      setErrorMessage((prevState) => ({ value: "Invalid Credentials" }));
     }
     localStorage.setItem("id",info.orderid)
     localStorage.setItem("name",info.name)
