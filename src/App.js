@@ -71,6 +71,7 @@ function App() {
     steps: stepArray,
     trackingId: trackingId,
     errormessage: errorMessage,
+    status: statusIndex,
   };
 
   useEffect(() => {
